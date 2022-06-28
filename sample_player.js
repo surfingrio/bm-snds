@@ -9,7 +9,7 @@ let pressOnce = false;
 
 function mousePressed() {
 
-if(pressOnce==false){
+if(mousePressed && pressOnce==false){
 
   // To process the sound
   const filter = new Tone.Filter().toDestination();
@@ -18,10 +18,16 @@ if(pressOnce==false){
     type: "lowpass",
   });
 
+  const filterRT = new Tone.Filter().toDestination();
+  filterRT.set({
+    frequency: map(Math.random(), 0, 1, 0, 5000 ),
+    type: "highpass",
+  });
+
   // A grain player
   const py1 = new Tone.Player(
     "https://surfingrio.github.io/snd/rt.mp3"
-  ).connect(filter);
+  ).connect(filterRT);
 
   const py2 = new Tone.Player(
     "https://surfingrio.github.io/snd/a1.mp3"
@@ -43,8 +49,6 @@ if(pressOnce==false){
     "https://surfingrio.github.io/snd/mcuts.mp3"
   ).connect(filter);
 
-  py1.playbackRate = map(Math.random(), 0, 1, 0.2, 1);
-  py1.grainSize = map(Math.random(), 0, 1, 0.01, 0.8);
   py1.loop = true;
   py1.autostart = true;
 
@@ -68,10 +72,10 @@ if(pressOnce==false){
   py5.loop = true;
   py5.autostart = true;
 
-  py6.playbackRate = map(Math.random(), 0, 1, 0.2, 1);
+  py6.playbackRate = map(Math.random(), 0, 1, 0.35, 0.7);
   py6.grainSize = map(Math.random(), 0, 1, 0.01, 0.8);
   py6.loop = true;
   py6.autostart = true;
 
-  let pressOnce=true;
+  pressOnce=true;
 }}
