@@ -73,5 +73,5 @@ if(pressOnce==false){
   py6.loop = true;
   py6.autostart = true;
 
-  pressOnce=true;
+  let pressOnce=true;
 }}
