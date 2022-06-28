@@ -72,7 +72,7 @@ if(mousePressed && pressOnce==false){
   py5.loop = true;
   py5.autostart = true;
 
-  py6.playbackRate = map(Math.random(), 0, 1, 0.35, 0.7);
+  py6.playbackRate = map(Math.random(), 0, 1, 0.5, 0.9);
   py6.grainSize = map(Math.random(), 0, 1, 0.01, 0.8);
   py6.loop = true;
   py6.autostart = true;
