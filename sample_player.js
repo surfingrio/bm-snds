@@ -5,12 +5,12 @@ function setup() {
   canvas = createCanvas(w, h);
 }
 
-// function setupTone(){
-//   let synth = new
-//   Tone.Synth().toMaster();
-// }
+let pressOnce = false;
 
 function mousePressed() {
+
+if(pressOnce==false){
+
   // To process the sound
   const filter = new Tone.Filter().toDestination();
   filter.set({
@@ -73,9 +73,5 @@ function mousePressed() {
   py6.loop = true;
   py6.autostart = true;
 
-
-
-
-  player.autostart = true;
-
-}
+  pressOnce=true;
+}}
